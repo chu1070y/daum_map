@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="listUL"></ul>
+
+<script>
+
+    var listUL = document.querySelector("#listUL");
+
+    var str = '';
+
+    var arr = [];
+
+    for(var i = 0; i < 10; i++){
+
+        // 즉시 실행하는 함수 fn + fnReal
+        var fnResult = (function(idx){
+            return function () {
+                console.log(idx);
+            }
+        })(i);
+
+        arr.push(fnResult);
+
+        str += "<li onclick='arr[" + i + "]()'>AAAA" + i + "</li>";
+
+        listUL.innerHTML = str;
+    }
+
+</script>
+</body>
+</html>
